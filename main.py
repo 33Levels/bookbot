@@ -1,3 +1,4 @@
+import sys
 from stats import count_words
 from stats import count_chars
 from stats import sort_chars
@@ -5,7 +6,11 @@ from stats import sort_chars
 def main():
     char_count = {}
     char_sort = []
-    book_path = "./books/frankenstein.txt"
+    #book_path = "./books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
     file_content = read_file(book_path)
     #word_count = count_words(file_content)
     #char_count = count_chars(file_content)
